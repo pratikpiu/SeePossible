@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <type name="Magento\Catalog\Model\Config">
-        <plugin name="add_sort_by_option_label" type="SeePossible\ProductSortBy\Plugin\Catalog\Model\Config"/>
-    </type>
-    <type name="Magento\Catalog\Block\Product\ProductList\Toolbar">
-        <plugin name="set_sort_order" type="SeePossible\ProductSortBy\Plugin\Catalog\Block\Toolbar"/>
-    </type>
-</config>
