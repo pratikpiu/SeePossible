@@ -50,10 +50,15 @@ class CustomerOrderInfo implements CustomerOrderInfoInterface
     {
         $tableName = $this->resourceConnection->getTableName('sales_order');
         $connection = $this->resourceConnection->getConnection();
-        $selectQuery = "SELECT SUM(grand_total) AS life_time_order_value FROM ".$tableName." WHERE customer_id = ".$customerId;
-        $customeLifeTimeOrderValue = $connection->fetchAll($selectQuery);
-        echo "Customer Life Time Order Value - " . $customeLifeTimeOrderValue[0]['life_time_order_value'];
-        echo "\n";
+        $select = $connection->select()->from(
+            $tableName,
+            ['life_time_order_value' => new \Zend_Db_Expr('SUM(grand_total)')]
+        )->where(
+            'customer_id = '.$customerId
+        ) ;
+//        $selectQuery = "SELECT SUM(grand_total) AS life_time_order_value FROM ".$tableName." WHERE customer_id = ".$customerId;
+        $customeLifeTimeOrderValue = $connection->fetchOne($select);
+        echo "Customer Life Time Order Value - " . $customeLifeTimeOrderValue . "\n";
         $customer = $this->customerRegistry->retrieve($customerId);
         return $customer->getDataModel();
     }
