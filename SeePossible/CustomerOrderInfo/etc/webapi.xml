@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <!-- Customer Info * Order Info -->
+    <route url="/V1/orders/customer/:customerId" method="GET">
+        <service class="SeePossible\CustomerOrderInfo\Api\CustomerOrderInfoInterface" method="getById"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+</routes>
