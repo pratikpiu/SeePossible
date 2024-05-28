@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="SeePossible_Blog::menu" title="SeePossible" module="SeePossible_Blog" sortOrder="50" resource="SeePossible_Blog::menu"/>
+        <add id="SeePossible_Blog::blog" title="Blog" translate="title" module="SeePossible_Blog" sortOrder="10" parent="SeePossible_Blog::menu" action="blog/post/" resource="SeePossible_Blog::menu"/>
+<!--        <add id="SeePossible_Blog::blog" title="Blog" module="SeePossible_Blog" sortOrder="10" resource="SeePossible_Blog::blog" parent="SeePossible_Blog::menu"/>-->
+<!--        <add id="SeePossible_Blog::post" title="Post" module="SeePossible_Blog" sortOrder="20" action="blog/post" resource="SeePossible_Blog::post" parent="SeePossible_Blog::blog"/>-->
+    </menu>
+</config>

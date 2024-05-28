@@ -1,0 +1,29 @@
+<?php
+/**
+ * @var \SeePossible\Blog\Block\Adminhtml\Post\Product\Link $block
+ * @var $escaper \Magento\Framework\Escaper
+ */
+$productLinkData = $block->getPostProductLink();
+?>
+<?php if ($productLinkData) : ?>
+<div class="admin__data-grid-wrap">
+    <table class="data-grid">
+        <thead>
+            <tr>
+                <th class="data-grid-th"><?= $escaper->escapeHtmlAttr('Product Id') ?></th>
+                <th class="data-grid-th"><?= $escaper->escapeHtmlAttr('Name') ?></th>
+                <th class="data-grid-th"><?= $escaper->escapeHtmlAttr('Sku') ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($productLinkData as $item): ?>
+                <tr class="data-row">
+                    <?php foreach ($item as $value) : ?>
+                            <td class="col"><div class="data-grid-cell-content"><?= $escaper->escapeHtmlAttr($value) ?></div></td>
+                    <?php endforeach; ?>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<?php endif; ?>
